@@ -1,0 +1,73 @@
+name: Deploy via Aliyun ACR
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      # 1️⃣ Checkout
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2️⃣ 登录阿里云 ACR
+      - name: Login to Aliyun ACR
+        run: |
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login \
+            --username=${{ secrets.ACR_USERNAME }} \
+            --password-stdin \
+            ${{ secrets.ACR_REGISTRY }}
+
+      # 3️⃣ Build 镜像（CI 环境）
+      - name: Build Docker image
+        run: |
+          docker build \
+            --no-cache \
+            -t ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest .
+
+      # 4️⃣ Push 镜像到 ACR
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest
+
+      # 5️⃣ SSH Agent
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # 6️⃣ known_hosts
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      # 7️⃣ ECS 上拉镜像并启动
+      - name: Deploy on ECS
+        run: |
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
+            set -e
+
+            echo "🚀 Deploy from ACR"
+
+            docker login \
+              -u ${{ secrets.ACR_USERNAME }} \
+              -p ${{ secrets.ACR_PASSWORD }} \
+              ${{ secrets.ACR_REGISTRY }}
+
+            cd ${{ secrets.SERVER_PATH }}
+
+            docker pull ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest
+
+            docker compose up -d --remove-orphans
+
+            docker image prune -f
+
+            echo "✅ Deploy success"
+          EOF
