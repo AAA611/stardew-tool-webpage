@@ -29,12 +29,12 @@ jobs:
         run: |
           docker build \
             --no-cache \
-            -t ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest .
+            -t ${{ secrets.ACR_REGISTRY }}/wdd-yyds/stardew-tool-webpage:latest .
 
       # 4️⃣ Push 镜像到 ACR
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest
+          docker push ${{ secrets.ACR_REGISTRY }}/wdd-yyds/stardew-tool-webpage:latest
 
       # 5️⃣ SSH Agent
       - name: Setup SSH
@@ -63,7 +63,7 @@ jobs:
 
             cd ${{ secrets.SERVER_PATH }}
 
-            docker pull ${{ secrets.ACR_REGISTRY }}/wdd-yyds/hub-one:latest
+            docker pull ${{ secrets.ACR_REGISTRY }}/wdd-yyds/stardew-tool-webpage:latest
 
             docker compose up -d --remove-orphans
 

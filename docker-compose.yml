@@ -1,0 +1,19 @@
+services:
+  app:
+    image: crpi-0itt0nxx1k8vs8oq.cn-hangzhou.personal.cr.aliyuncs.com/wdd-yyds/stardew-tool-webpage:latest
+    container_name: stardew-tool-webpage
+    restart: always
+    
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      # Caddy 内部 CA（自签证书）存储
+      - caddy_data:/data
+      # Caddy 配置与状态
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
