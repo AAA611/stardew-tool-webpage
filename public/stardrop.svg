@@ -1,0 +1,41 @@
+<svg width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 轮廓 (深紫色) -->
+  <rect x="7" y="1" width="2" height="1" fill="#4B0082"/>
+  <rect x="5" y="2" width="2" height="1" fill="#4B0082"/>
+  <rect x="9" y="2" width="2" height="1" fill="#4B0082"/>
+  <rect x="3" y="3" width="2" height="1" fill="#4B0082"/>
+  <rect x="11" y="3" width="2" height="1" fill="#4B0082"/>
+  <rect x="2" y="4" width="1" height="2" fill="#4B0082"/>
+  <rect x="13" y="4" width="1" height="2" fill="#4B0082"/>
+  <rect x="1" y="6" width="1" height="3" fill="#4B0082"/>
+  <rect x="14" y="6" width="1" height="3" fill="#4B0082"/>
+  <rect x="2" y="9" width="1" height="2" fill="#4B0082"/>
+  <rect x="13" y="9" width="1" height="2" fill="#4B0082"/>
+  <rect x="3" y="11" width="2" height="1" fill="#4B0082"/>
+  <rect x="11" y="11" width="2" height="1" fill="#4B0082"/>
+  <rect x="5" y="12" width="2" height="1" fill="#4B0082"/>
+  <rect x="9" y="12" width="2" height="1" fill="#4B0082"/>
+  <rect x="7" y="13" width="2" height="1" fill="#4B0082"/>
+
+  <!-- 主体 (紫色渐变 - 简化为几种紫色) -->
+  <!-- 顶部亮紫 -->
+  <rect x="7" y="2" width="2" height="1" fill="#9370DB"/>
+  <rect x="5" y="3" width="6" height="1" fill="#9370DB"/>
+  <rect x="3" y="4" width="10" height="2" fill="#8A2BE2"/>
+  
+  <!-- 中部深紫 -->
+  <rect x="2" y="6" width="12" height="3" fill="#8A2BE2"/>
+  <rect x="3" y="9" width="10" height="2" fill="#800080"/>
+  
+  <!-- 底部更深紫 -->
+  <rect x="5" y="11" width="6" height="1" fill="#4B0082"/>
+  <rect x="7" y="12" width="2" height="1" fill="#4B0082"/>
+
+  <!-- 高光 (黄色/白色) -->
+  <rect x="10" y="4" width="1" height="1" fill="#FFFACD"/>
+  <rect x="11" y="5" width="1" height="1" fill="#FFFACD"/>
+  
+  <!-- 核心光泽 (橙色/黄色) -->
+  <rect x="7" y="6" width="2" height="2" fill="#FFA500"/>
+  <rect x="7" y="8" width="2" height="1" fill="#FFD700"/>
+</svg>
