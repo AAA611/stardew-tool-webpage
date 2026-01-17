@@ -5,8 +5,8 @@ services:
     restart: always
     
     ports:
-      - "80:80"
-      - "443:443"
+      - "8081:80"
+      - "80802:443"
 
     volumes:
       # Caddy 内部 CA（自签证书）存储
