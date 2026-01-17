@@ -13,6 +13,39 @@
   .animate-shimmer {
     animation: shimmer 1.5s infinite;
   }
+  .animate-walk {
+    animation: walk 20s linear infinite;
+  }
+  .animate-bounce-walk {
+    animation: bounce-walk 0.4s ease-in-out infinite alternate;
+  }
+  .animate-bounce-walk-fast {
+    animation: bounce-walk 0.3s ease-in-out infinite alternate;
+  }
+  .pixel-art {
+    image-rendering: pixelated;
+  }
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+  .animate-ripple {
+    animation: ripple 3s linear infinite;
+  }
+  .animate-rod-sway {
+    animation: rod-sway 4s ease-in-out infinite;
+  }
+  .animate-wave-move {
+    animation: wave-move 4s linear infinite;
+  }
+  .animate-swim-right {
+    animation: swim-right 15s linear infinite;
+  }
+  .animate-swim-left {
+    animation: swim-left 20s linear infinite;
+  }
+  .animate-fish-bounce {
+    animation: fish-bounce 0.5s ease-in-out infinite alternate;
+  }
 }
 
 @keyframes blob {
@@ -24,4 +57,49 @@
 
 @keyframes shimmer {
   100% { transform: translateX(100%); }
+}
+
+@keyframes walk {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes bounce-walk {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes rod-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-1deg); }
+}
+
+@keyframes wave-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+@keyframes swim-right {
+  0% { transform: translateX(-50px) scaleX(-1); }
+  100% { transform: translateX(100vw) scaleX(-1); }
+}
+
+@keyframes swim-left {
+  0% { transform: translateX(100vw) scaleX(1); }
+  100% { transform: translateX(-50px) scaleX(1); }
+}
+
+@keyframes fish-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
 }

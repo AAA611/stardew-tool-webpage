@@ -1,10 +1,12 @@
 import React from 'react';
+import WalkingCharacter from './components/WalkingCharacter';
+import FishingScene from './components/FishingScene';
 import './App.css';
 
 function App() {
   const handleViewInstructions = () => {
     // 跳转到使用说明页面，这里使用星露谷 Wiki 作为示例
-    window.location.href = 'https://zh.stardewvalleywiki.com/Stardew_Valley_Wiki'; 
+    window.location.href = 'https://www.yuque.com/wangdongdong-lmrcy/am2msh/sci20i6p522yz6ih'; 
   };
 
   return (
@@ -19,16 +21,15 @@ function App() {
       <div className="max-w-3xl w-full text-center space-y-8 p-8 z-10">
         <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow-sm">
-            星露谷助手
+            星露谷 - 科技助农
             </h1>
             <p className="text-xl md:text-2xl font-light text-indigo-100/80">
-            您的农场生活全方位指南
+            星露谷物语MOD助手
             </p>
         </div>
         
         <p className="text-lg text-indigo-200/90 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl">
-          无论是种植作物、饲养动物，还是探索矿井、结交村民，我们都为您提供了详尽的数据与策略。
-          点击下方按钮，立即开启您的完美庄园生活。
+          提供丰富的MOD管理功能，快去试试吧！
         </p>
 
         <div className="pt-8">
@@ -38,7 +39,7 @@ function App() {
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
             <span className="relative flex items-center">
-                查看使用说明
+                查看使用说明书
                 <svg className="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
@@ -50,6 +51,12 @@ function App() {
       <footer className="absolute bottom-6 text-indigo-300/60 text-sm z-10">
         © {new Date().getFullYear()} Stardew Webpage. Designed for Farmers.
       </footer>
+      
+      {/* 屏幕底部行走的像素小人 */}
+      <WalkingCharacter />
+      
+      {/* 屏幕右下角的垂钓场景 */}
+      <FishingScene />
     </div>
   );
 }
