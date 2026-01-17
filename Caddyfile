@@ -1,5 +1,4 @@
-:443 {
-    tls internal
+:80 {
     root * /srv
     encode gzip
     file_server
