@@ -1,7 +1,7 @@
 # ===============================
 # Build stage
 # ===============================
-FROM node:18-alpine AS builder
+FROM node:18 AS builder
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN npm run build
 # ===============================
 # Runtime stage - Caddy
 # ===============================
-FROM caddy:2-alpine
+FROM caddy:lastest
 
 WORKDIR /srv
 
