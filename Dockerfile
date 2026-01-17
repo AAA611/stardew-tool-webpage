@@ -15,8 +15,8 @@ RUN npm run build
 # ===============================
 # Runtime stage - Caddy
 # ===============================
-FROM caddy:latest
-
+FROM caddy:2.7.6
+ENV XDG_DATA_HOME=/data
 WORKDIR /srv
 
 # 拷贝构建产物
