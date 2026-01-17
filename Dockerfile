@@ -15,7 +15,7 @@ RUN npm run build
 # ===============================
 # Runtime stage - Caddy
 # ===============================
-FROM caddy:lastest
+FROM caddy:latest
 
 WORKDIR /srv
 
