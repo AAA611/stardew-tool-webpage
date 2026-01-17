@@ -6,7 +6,7 @@ services:
     
     ports:
       - "8081:80"
-      - "80802:443"
+      - "8082:443"
 
     volumes:
       # Caddy 内部 CA（自签证书）存储
